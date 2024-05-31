@@ -46,7 +46,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.lia.Main</mainClass>
+                            <mainClass>org.lia.java_lab8_client_v2.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
