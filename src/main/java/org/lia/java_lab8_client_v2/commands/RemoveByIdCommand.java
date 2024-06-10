@@ -31,9 +31,9 @@ public class RemoveByIdCommand implements Command {
             int res = sqlManager.deleteElementById(id, userId);
             Product product = collectionManager.getById(id);
             if (res > 0) {
-                response.addAnswer(product.toString());
                 collectionManager.removeFromCollection(product);
                 response.addAnswer("Product was successfully deleted");
+                response.setSuccess(true);
             } else {
                 response.addAnswer("Access denied - probably, it was not yours product");
             }

@@ -6,6 +6,8 @@ import org.lia.java_lab8_client_v2.managers.SqlManager;
 import org.lia.java_lab8_client_v2.models.Product;
 import org.lia.java_lab8_client_v2.tools.Response;
 
+import java.util.ArrayDeque;
+
 public class ClearCommand implements Command {
     private static final long serialVersionUID = 1785464768755190753L;
 
@@ -28,10 +30,15 @@ public class ClearCommand implements Command {
         Response response = new Response();
         long userId = sqlManager.checkUser(login, password);
         sqlManager.deleteElementsByUserId(userId);
-        for (Product c: collectionManager.getProductCollection()) {
+        ArrayDeque<Product> collection = collectionManager.getProductCollection();
+        ArrayDeque<Product> toDelete = new ArrayDeque<>();
+        for (Product c: collection) {
             if (c.getUserId() == userId) {
-                collectionManager.removeFromCollection(c);
+                toDelete.addLast(c);
             }
+        }
+        for (Product c: toDelete) {
+            collectionManager.removeFromCollection(c);
         }
         response.addAnswer("Products created buy you were deleted");
         return response;
