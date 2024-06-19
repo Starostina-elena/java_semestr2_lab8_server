@@ -48,10 +48,10 @@ public class AddIfMaxCommand implements Command {
                 } catch (SQLException e) {
                     response.addAnswer(e.toString());
                 }
-                response.addAnswer("object was successfully added");
+                response.addAnswer("object_was_successfully_added");
                 response.addAnswer(product.toString());
             } else {
-                response.addAnswer("object is not max, it wasn't added");
+                response.addAnswer("object_is_not_max");
             }
         } catch (IllegalArgumentException e) {
             response.addAnswer(e + ". Please try again");

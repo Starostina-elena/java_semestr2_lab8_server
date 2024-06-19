@@ -32,10 +32,10 @@ public class RemoveByIdCommand implements Command {
             Product product = collectionManager.getById(id);
             if (res > 0) {
                 collectionManager.removeFromCollection(product);
-                response.addAnswer("Product was successfully deleted");
+                response.addAnswer("Product_was_successfully_deleted");
                 response.setSuccess(true);
             } else {
-                response.addAnswer("Access denied - probably, it was not yours product");
+                response.addAnswer("access_denied_delete");
             }
 
         } catch (ArrayIndexOutOfBoundsException e) {

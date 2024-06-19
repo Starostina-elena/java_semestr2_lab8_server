@@ -37,7 +37,7 @@ public class AddCommand implements Command {
                 long id = sqlManager.addElement(product);
                 product.setId(id);
                 collectionManager.addToCollection(product);
-                response.addAnswer("object was successfully added");
+                response.addAnswer("object_was_successfully_added");
             } catch (SQLException e) {
                 response.addAnswer(e.toString());
             }

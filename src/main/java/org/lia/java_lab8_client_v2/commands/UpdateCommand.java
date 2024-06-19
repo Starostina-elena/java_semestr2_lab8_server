@@ -38,7 +38,7 @@ public class UpdateCommand implements Command {
             }
         }
         if (oldProduct == null | product == null) {
-            response.addAnswer("no such element");
+            response.addAnswer("no_such_element");
         } else if (oldProduct.getUserId() == userId) {
             try {
                 product.setId(productId);
@@ -47,14 +47,14 @@ public class UpdateCommand implements Command {
                 sqlManager.updateElement(product);
                 collectionManager.removeFromCollection(oldProduct);
                 collectionManager.addToCollection(product);
-                response.addAnswer("object was successfully updated");
+                response.addAnswer("object_was_successfully_updated");
                 response.setSuccess(true);
 
             } catch (SQLException e) {
                 response.addAnswer(e.toString());
             }
         } else {
-            response.addAnswer("access denied: you can not modify objects created buy other users");
+            response.addAnswer("access_denied_update");
         }
         return response;
     }
