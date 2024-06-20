@@ -41,6 +41,7 @@ public class RemoveLowerCommand implements Command {
                 }
             }
             response.addAnswer(counter + " products were successfully deleted");
+            response.setCountObjects(counter);
         } catch (ArrayIndexOutOfBoundsException e) {
             response.addAnswer("Incorrect number of arguments for remove_lower command. Please try again");
         } catch (NumberFormatException e) {

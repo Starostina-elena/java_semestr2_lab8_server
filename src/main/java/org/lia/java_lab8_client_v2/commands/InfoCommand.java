@@ -26,6 +26,7 @@ public class InfoCommand implements Command {
     public Response execute() {
         Response response = new Response();
         response.addAnswer(collectionManager.shortInfo());
+        response.setCountObjects(collectionManager.getNumberOfElements());
         return response;
     }
 

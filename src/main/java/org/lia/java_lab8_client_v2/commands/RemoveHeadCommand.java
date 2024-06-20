@@ -40,6 +40,7 @@ public class RemoveHeadCommand implements Command {
         if (!status) {
             response.addAnswer("There are no elements created by you in the collection");
         }
+        response.setSuccess(status);
         return response;
     }
 

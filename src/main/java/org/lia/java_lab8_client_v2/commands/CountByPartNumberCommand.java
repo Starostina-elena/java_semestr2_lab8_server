@@ -34,6 +34,7 @@ public class CountByPartNumberCommand implements Command {
                 }
             }
             response.addAnswer("There are " + cnt +  " products with this partNumber");
+            response.setCountObjects(cnt);
         } catch (ArrayIndexOutOfBoundsException e) {
             response.addAnswer("Incorrect number of arguments for count_by_part_number command. Please try again");
         }

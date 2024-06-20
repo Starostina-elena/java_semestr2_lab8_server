@@ -15,6 +15,7 @@ public class Response implements Serializable {
     private ArrayDeque<Product> productCollectionResponse;
     private boolean success;
     private long userId;
+    private long countObjects;
 
     public Product getProduct() {
         return product;
@@ -54,6 +55,14 @@ public class Response implements Serializable {
 
     public long getUserId() {
         return userId;
+    }
+
+    public long getCountObjects() {
+        return countObjects;
+    }
+
+    public void setCountObjects(long countObjects) {
+        this.countObjects = countObjects;
     }
 
 }
