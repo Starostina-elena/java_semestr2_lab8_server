@@ -3,6 +3,7 @@ package org.lia.java_lab8_client_v2.commands;
 import org.lia.java_lab8_client_v2.managers.CollectionManager;
 import org.lia.java_lab8_client_v2.managers.CommandManager;
 import org.lia.java_lab8_client_v2.managers.SqlManager;
+import org.lia.java_lab8_client_v2.models.Product;
 import org.lia.java_lab8_client_v2.tools.Response;
 
 public class MinByIdCommand implements Command {
@@ -23,7 +24,13 @@ public class MinByIdCommand implements Command {
 
     public Response execute() {
         Response response = new Response();
-        response.addAnswer(collectionManager.getProductCollection().getFirst().toString());
+        Product answer = collectionManager.getProductCollection().getFirst();
+        for (Product c: collectionManager.getProductCollection()) {
+            if (c.getId() < answer.getId()) {
+                answer = c;
+            }
+        }
+        response.addAnswer(answer.toString());
         return response;
     }
 

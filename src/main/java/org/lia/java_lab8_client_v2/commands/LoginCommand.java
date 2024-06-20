@@ -31,6 +31,7 @@ public class LoginCommand implements Command {
         Response response = new Response();
         long id = sqlManager.checkUser(login, passwordString);
         response.setSuccess(id > 0);
+        response.setUserId(id);
         return response;
     }
 

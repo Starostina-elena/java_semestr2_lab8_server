@@ -31,6 +31,7 @@ public class SignUpCommand implements Command {
         try {
             long id = sqlManager.addUser(login, passwordString);
             response.setSuccess(true);
+            response.setUserId(id);
         } catch (SQLException e) {
             response.addAnswer(e.toString());
         }
